@@ -24,12 +24,14 @@ conda create -n graphrag python=3.12
 conda activate graphrag
 ```
 
+
 2. **필요한 파일을 설치하세요.**
 ```bash
 git clone https://github.com/richbang/Ko-GraphRAG.git
 cd Ko-GraphRAG
 pip install -e .
 ```
+
 
 3. **로컬에서 Ollama를 실행해 보세요**
 - 방법 1. [Ollama 홈페이지](https://ollama.com/)
@@ -39,25 +41,29 @@ curl -fsSL https://ollama.com/install.sh | sh #ollama for linux
 pip install ollama
 ```
 
+
 4. **각 환경에 적합한 모델을 다운로드 받으세요**
 본 저장소는 다음 모델들을 사용하여 GraphRAG를 실현했습니다.
-1. **'mistral-nemo'**모델로 인덱싱을 수행했습니다.
-2. **임베딩**모델은 **bge-m3**를 사용했습니다.
-3. 인덱싱된 파일을 활용해 **추론**모델은 **llama3.1:70b**을 사용했습니다.
+  - **'mistral-nemo'**모델로 인덱싱을 수행했습니다.
+  - **임베딩**모델은 **bge-m3**를 사용했습니다.
+  - 인덱싱된 파일을 활용해 **추론**모델은 **llama3.1:70b**을 사용했습니다.
 
-```bash
-ollama pull mistral-nemo # 인덱싱 모델
-ollama pull bge-m3 # 임베딩 모델
-ollama pull llama3.1:70b # 추론 모델
-```
-인덱싱 모델과 추론 모델이 다른 이유는
-실험에 사용된 데이터셋을 활용하기에 **mistral-nemo**모델의 성능이 충분치 않기 때문입니다.
-적은 양의 데이터로는 **mistral-nemo**만으로도 충분합니다.
+  ```bash
+  ollama pull mistral-nemo # 인덱싱 모델
+  ollama pull bge-m3 # 임베딩 모델
+  ollama pull llama3.1:70b # 추론 모델
+  ```
+
+  인덱싱 모델과 추론 모델이 다른 이유는
+  실험에 사용된 데이터셋을 활용하기에 **mistral-nemo**모델의 성능이 충분치 않기 때문입니다.
+  적은 양의 데이터로는 **mistral-nemo**만으로도 충분합니다.
+
 
 5. **구현 데이터셋**
 본 레포의 입력 데이터셋은 뉴스 기사 기계독해 데이터로, AI Hub의 데이터를 활용했습니다.
 해당 데이터셋 중에서 1000편의 기사를 무작위로 추출하여 입력 데이터로 작성했습니다.
 데이터셋 출처: [AI Hub](https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&dataSetSn=577)
+
 
 6. **Ollama 설정**
 Ollama의 모델을 **pull** 명령어로 받았을 때, 기본으로 설정된 max_token 값은 **2048**입니다.
