@@ -130,12 +130,32 @@ Ollama의 모델을 **pull** 명령어로 받았을 때, 기본으로 설정된 
   'visualize-graphml.py'를 이용해도 마찬가지로 시각화를 할 수 있습니다.
 
 
+9. **파일 설명**
+  'data_table.txt'는 코로나19 확산 방지를 위한 조치에 대해 질문을 했을 때 LLM이 가져온 지식 그래프 테이블입니다.
+  mistral.modelfile 및 myllama3.1.modelfile 및 bge-m3.modelfile을 참고해서 Ollama의 각종 모델의 파라미터를 설정하세요.
+
+
+10. **Ollama GPU 선택하기**
+  해당 레포지토리는 CUDA_VISIBLE_DEVICES로 GPU를 선택하기 어렵습니다.
+  따라서 Ollama의 설정 파일을 수정하여야 합니다.
+
+  ```bash
+  vi /etc/systemd/system/ollama.service
+  sudo systemctl daemon-reload
+  sudo systemctl restart ollama
+  ```
+  파일을 편집기에서 연 뒤
+  [Service] 아래에
+  Environment="CUDA_VISIBLE_DEVICES=0,1,2,3,4"와 같은 형식으로 원하는 GPU를 입력하면 됩니다.
+  그 후, daemon을 리로드하고 ollama를 재실행하세요.
+
 
 ## 프로젝트 가이드
 이 저장소는 지식 그래프 메모리 구조를 활용하여 LLM의 출력을 향상시키는 방법론을 제시합니다.
 Microsoft의 원본 코드를 기반으로 로컬 LLM 환경 및 한국어 데이터에 맞춰 수정되었으며, 이는 공식 Microsoft 지원 프로젝트가 아님을 밝힙니다.
 
 ⚠️ 주의: GraphRAG 인덱싱은 비용이 많이 드는 작업일 수 있습니다. 작업을 시작하기 전에 문서를 꼼꼼히 읽고, 작은 데이터셋으로 실험하는 것을 권장합니다.
+
 
 
 ## Citations
