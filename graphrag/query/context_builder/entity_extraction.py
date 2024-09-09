@@ -54,7 +54,7 @@ def map_query_to_entities(
         # oversample to account for excluded entities
         search_results = text_embedding_vectorstore.similarity_search_by_text(
             text=query,
-            text_embedder=lambda t: text_embedder.embed(t),
+            text_embedder=lambda t: text_embedder.embed(t, encoding_format="float"),
             k=k * oversample_scaler,
         )
         for result in search_results:
