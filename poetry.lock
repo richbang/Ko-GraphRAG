@@ -3219,18 +3219,19 @@ testing = ["pytest", "pytest-benchmark"]
 
 [[package]]
 name = "poethepoet"
-version = "0.27.0"
+version = "0.31.0"
 description = "A task runner that works well with poetry."
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.9"
 files = [
-    {file = "poethepoet-0.27.0-py3-none-any.whl", hash = "sha256:0032d980a623b96e26dc7450ae200b0998be523f27d297d799b97510fe252a24"},
-    {file = "poethepoet-0.27.0.tar.gz", hash = "sha256:907ab4dc1bc6326be5a3b10d2aa39d1acc0ca12024317d9506fbe9c0cdc912c9"},
+    {file = "poethepoet-0.31.0-py3-none-any.whl", hash = "sha256:5067c5adf9f228b8af1f3df7d57dc319ed8b3f153bf21faf99f7b74494174c3d"},
+    {file = "poethepoet-0.31.0.tar.gz", hash = "sha256:b1cffb120149101b02ffa0583c6e61dfee53953a741df3dabf179836bdef97f5"},
 ]
 
 [package.dependencies]
 pastel = ">=0.2.1,<0.3.0"
-tomli = ">=1.2.2"
+pyyaml = ">=6.0.2,<7.0.0"
+tomli = {version = ">=1.2.2", markers = "python_version < \"3.11\""}
 
 [package.extras]
 poetry-plugin = ["poetry (>=1.0,<2.0)"]
@@ -5262,4 +5263,4 @@ test = ["big-O", "importlib-resources", "jaraco.functools", "jaraco.itertools", 
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10,<3.13"
-content-hash = "21c8055fa4025f02ee92a8cfd06f58397655c400c01b4334e690677e5155d6aa"
+content-hash = "f976673521253d58d999613af54f62bfb04ae9066d55e5d4dfc33ad3f8cf52bd"
